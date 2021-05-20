@@ -54,7 +54,7 @@ def getSubscriberDetails(developerKey, channelId, clientSecretFile):
             response = subscriptions_list_by_channel_id(client, part='subscriberSnippet', mySubscribers=True,
                                                         maxResults=50)
             subscriber_list.extend(
-                subscriberDetails(response))  # extending the list for adding the subsequent response.
+                tempList(response))  # extending the list for adding the subsequent response.
             try:
                 Token = response[
                     'nextPageToken']  # if nextpagetoken is available in the response ,will only be available when the subcribercount is more.
@@ -63,7 +63,7 @@ def getSubscriberDetails(developerKey, channelId, clientSecretFile):
         else:
             response = subscriptions_list_by_channel_id(client, part='subscriberSnippet', mySubscribers=True,
                                                         maxResults=10, pageToken=Token)
-            subscriber_list.extend(subscriberDetails(
+            subscriber_list.extend(tempList(
                 response))  # getting the response if the nextpage token is available and if it's the last page we break.
             try:
                 Token = response['nextPageToken']
