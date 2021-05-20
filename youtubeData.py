@@ -1,3 +1,4 @@
+#for installing the libraries https://developers.google.com/api-client-library/python/start/installation#installation
 # while generating the clientSecretFile in oAuthConsent developer should be given access under testing,should be added there.
 # Also we get the details of subscribers who set their subscriptions visibility to public.
 def getSubscriberDetails(developerKey, channelId, clientSecretFile):
